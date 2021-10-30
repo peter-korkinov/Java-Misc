@@ -1,0 +1,64 @@
+body {
+    background-color: #303333;
+    color: white;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 410px;
+    height: auto;
+    background-color: #1c1f1f;
+    text-align: center;
+    border: solid 2px floralwhite;
+}
+
+.container td {
+    padding: 10px;
+}
+
+.container textarea {
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: xxx-large;
+    font-weight: bold;
+    resize: none;
+    margin: 10px;
+    width: 90%;
+    text-align: right;
+    padding-top: 20px;
+    border: 2px floralwhite;
+    background: #1F2739;
+    color: floralwhite;
+}
+
+button {
+    background: #1F2739;
+    width: 80px;
+    height: 80px;
+    font-size: xx-large;
+    font-weight: bold;
+    color: floralwhite;
+    border-radius: 10px;
+    border-width: 4px 4px 6px 4px;
+}
+
+button:hover{
+    background: #273961;
+}
+
+button:active{
+    background: #3786c7;
+}
+
+.func {
+    background: #1c1f1f;
+}
+
+#equal {
+    width: 180px;
+}
+
+
