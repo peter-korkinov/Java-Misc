@@ -19,7 +19,7 @@ body {
     padding: 10px;
 }
 
-.container textarea {
+.container input {
     border-radius: 10px;
     box-sizing: border-box;
     font-size: xxx-large;
@@ -28,7 +28,7 @@ body {
     margin: 10px;
     width: 90%;
     text-align: right;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     border: 2px floralwhite;
     background: #1F2739;
     color: floralwhite;

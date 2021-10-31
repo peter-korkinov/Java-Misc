@@ -1,13 +1,12 @@
 
 document.querySelectorAll('button').forEach(item => {item.addEventListener('click', buts)});
 
-let calcScreen = document.querySelector('textarea');
+let calcScreen = document.querySelector('input');
 calcScreen.value = '';
 
+let result = '';
 
 function buts() {
-  let result = 0;
-
   const inputs = {
     '1': () => calcScreen.value += '1',
     '2': () => calcScreen.value += '2',
@@ -18,7 +17,11 @@ function buts() {
     '7': () => calcScreen.value += '7',
     '8': () => calcScreen.value += '8',
     '9': () => calcScreen.value += '9',
-    '0': () => calcScreen.value += '0',
+    '0': () => {
+      if (calcScreen.value !== '') {
+        calcScreen.value += '0'
+      }
+    },
     '+/-': () => {
       if (calcScreen.value[0] !== '-') {
       calcScreen.value = '-' + calcScreen.value;
@@ -35,15 +38,38 @@ function buts() {
     },
     '-': () => {
       if (calcScreen.value) {
-        result -= calcScreen.value;
+        result += calcScreen.value;
+        result += ' - ';
+        calcScreen.value = '';
       }
     },
-    // '+': ,
-    // '*': ,
-    // '/': ,
-    // '=': ,
+    '+': () => {
+      if (calcScreen.value) {
+        result += calcScreen.value;
+        result += ' + ';
+        calcScreen.value = '';
+      }
+    },
+    '*': () => {
+      if (calcScreen.value) {
+        result += calcScreen.value;
+        result += ' * ';
+        calcScreen.value = '';
+      }
+    },
+    '/': () => {
+      if (calcScreen.value) {
+        result += calcScreen.value;
+        result += ' / ';
+        calcScreen.value = '';
+      }
+    },
+    '=': () => console.log(result),
     'C': () => calcScreen.value = '',
-    // 'CE':
+    'CE': () => {
+      calcScreen.value = '';
+      result = '';
+    }
   }
 
   let temp = this.textContent;
