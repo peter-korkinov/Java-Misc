@@ -4,7 +4,7 @@ document.querySelectorAll('button').forEach(item => {item.addEventListener('clic
 let calcScreen = document.querySelector('input');
 calcScreen.value = '';
 
-let result = '';
+let result = [];
 
 function buts() {
   const inputs = {
@@ -38,37 +38,79 @@ function buts() {
     },
     '-': () => {
       if (calcScreen.value) {
-        result += calcScreen.value;
-        result += ' - ';
+        process();
+        result.push('subtract');
         calcScreen.value = '';
       }
     },
     '+': () => {
       if (calcScreen.value) {
-        result += calcScreen.value;
-        result += ' + ';
+        process();
+        result.push('add');
         calcScreen.value = '';
       }
     },
     '*': () => {
       if (calcScreen.value) {
-        result += calcScreen.value;
-        result += ' * ';
+        process();
+        result.push('multiply');
         calcScreen.value = '';
       }
     },
     '/': () => {
       if (calcScreen.value) {
-        result += calcScreen.value;
-        result += ' / ';
+        process();
+        result.push('divide');
         calcScreen.value = '';
       }
     },
-    '=': () => console.log(result),
+    '=': () => {
+      if (calcScreen.value) {
+        process();
+        calcScreen.value = result[0];
+        result = [];
+      }
+    },
     'C': () => calcScreen.value = '',
     'CE': () => {
       calcScreen.value = '';
-      result = '';
+      result = [];
+    }
+  }
+
+  function isCompleteExpression() {
+    return result.length === 3;
+  }
+
+  function expressionHandler() {
+    let [value1, operation, value2] = result;
+    value1 = Number(value1);
+    value2 = Number(value2);
+
+    return mathOperations(value1, value2, operation);
+  }
+
+  function mathOperations(a, b, oper) {
+    const operations = {
+      add: () => a + b,
+      subtract: () => a - b,
+      multiply: () => a * b,
+      divide: () => a / b
+    };
+
+    return operations[oper]();
+  }
+
+  function calculate() {
+    let temp = expressionHandler();
+    result = [];
+    result.push(temp);
+  }
+
+  function process() {
+    result.push(calcScreen.value);
+    if (isCompleteExpression()) {
+      calculate();
     }
   }
 

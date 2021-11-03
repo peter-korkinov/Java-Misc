@@ -22,13 +22,13 @@ body {
 .container input {
     border-radius: 10px;
     box-sizing: border-box;
-    font-size: xxx-large;
+    font-size: 25px;
     font-weight: bold;
+    padding: 20px 5px 20px 5px;
     resize: none;
     margin: 10px;
     width: 90%;
     text-align: right;
-    /*padding-top: 20px;*/
     border: 2px floralwhite;
     background: #1F2739;
     color: floralwhite;
